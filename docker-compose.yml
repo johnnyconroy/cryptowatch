@@ -1,0 +1,31 @@
+version: '3.3'
+
+services:
+
+  web:
+    container_name: web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/usr/src/app'
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+    links:
+      - redis
+
+  redis:
+    container_name: redis
+    hostname: redis
+    image: redis
+
+  redisCommander:
+    container_name: redis-commander
+    image: tenstartups/redis-commander
+    command: --redis-host redis
+    links:
+      - redis:redis
+    ports:
+      - "8081:8081"
