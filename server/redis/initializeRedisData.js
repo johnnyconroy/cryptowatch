@@ -1,6 +1,6 @@
 const redis = require('redis');
-const client = require('./redis-client');
-const fetchCoindeskBPI = require('../api/coindesk');
+const client = require('./redisClient');
+const fetchCoindeskBPI = require('../../api/coindesk');
 
 const initializeRedisData = () => {
   fetchCoindeskBPI(365, 0, (err, res) => {
