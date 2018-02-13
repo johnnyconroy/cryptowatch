@@ -21,7 +21,7 @@ src/redis-server
 ```bash
 yarn
 ```
-* Start server
+* Start server - in a second terminal window
 ```bash
 yarn start-server
 ```
