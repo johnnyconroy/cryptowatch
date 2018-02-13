@@ -12,7 +12,7 @@ TBD
 * [Docker](https://www.docker.com/)
 
 ## Get Started
-* Install and launch **[Redis](https://redis.io/download)**
+* Install and launch [Redis](https://redis.io/download)
 ```bash
 cd /my/redis/installation/folder
 src/redis-server
@@ -41,4 +41,5 @@ docker-compose up -d
 ```bash
 docker-compose logs -f -t
 ```
-> Running locally on http://localhost:4000
+> App running locally on http://localhost:4000
+> Redis Commander running locally on http://localhost:8081
