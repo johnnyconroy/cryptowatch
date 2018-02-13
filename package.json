@@ -16,8 +16,9 @@
     "request": "^2.83.0"
   },
   "scripts": {
-    "start": "nodemon ./server/app.js --exec babel-node -e js",
-    "start-dev": "react-scripts start",
+    "start-server": "nodemon ./server/app.js --exec babel-node -e js",
+    "start": "react-scripts start",
+    "start-docker": "NODE_ENV=production npm run build && npm run start-server",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",

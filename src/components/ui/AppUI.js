@@ -2,10 +2,15 @@ import React, { Component } from 'react';
 import Timeline from './Timeline';
 import { jsonToRecharts } from '../../rechartsUtils/dataConversion';
 
+const prefixUrl = window.location.host.includes('localhost') ?
+  'http://localhost:4000/' :
+  '';
+const timelineUrl = `${prefixUrl}api/timeline`;
+
 class AppUI extends Component {
   componentDidMount() {
     this.props.startFetchTimelineData();
-    fetch('http://localhost:4000/api/timeline')
+    fetch(timelineUrl)
       .then(response => response.json())
       .then(response => jsonToRecharts(response))
       .then((data) => {
