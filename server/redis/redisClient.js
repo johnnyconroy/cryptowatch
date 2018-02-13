@@ -1,10 +1,9 @@
 // @flow
 const redis = require('redis');
 
-// Create redis client
-const client = redis.createClient({
-  // host: 'redis',
-}); // localhost:6379
+// Create redis client - both in development and in production
+const host = process.env.NODE_ENV === 'production' ? { host: 'redis' } : {};
+const client = redis.createClient(host);
 console.log('Redis running locally...');
 
 // Connect to redis
