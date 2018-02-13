@@ -1,11 +1,35 @@
 # cryptowatch
-React-Node-Redis web app that watches various cryptocurrencies through public APIs
+Web app monitoring various cryptocurrencies through public APIs.
 
+## Demo
+TBD
+
+## Stack
+* [ReactJS](https://reactjs.org/)
+* [Node.js](https://nodejs.org/en/)
+* [Express](http://expressjs.com/)
+* [Redis](https://redis.io/download)
+* [Docker](https://www.docker.com/)
+
+## Get Started
+* Install and launch **[Redis](https://redis.io/download)**
 ```bash
-$ yarn global add flow-typed
-
-$ cd /path/to/my/project
-$ yarn install
-$ flow-typed install
-$ yarn start
+cd /my/redis/installation/folder
+src/redis-server 
 ```
+* Dependencies
+```bash
+yarn
+```
+* Start server
+```bash
+yarn start-server 
+```
+> Running locally on http://localhost:4000
+* Start React App
+```bash
+yarn start
+```
+> Running locally on http://localhost:3000
+
+## Deployment with Docker
