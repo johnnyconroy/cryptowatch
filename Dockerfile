@@ -11,7 +11,7 @@ ENV PATH /usr/src/app/node_modules/.bin:$PATH
 # install and cache app dependencies
 ADD package.json /usr/src/app/package.json
 RUN yarn
-RUN yarn global add react-scripts@1.1.1 --silent
+RUN yarn global add react-scripts@1.1.1
 
 # start app
 CMD ["yarn", "start-docker"]
