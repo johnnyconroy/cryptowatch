@@ -4,11 +4,14 @@ services:
 
   webapp:
     container_name: webapp
+    depends_on:
+     - redis
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
       - '.:/usr/src/app'
+      - 'usr/src/app/node_modules'
     ports:
       - '4000:4000'
     environment:
@@ -22,6 +25,8 @@ services:
 
   redisCommander:
     container_name: redis-commander
+    depends_on:
+     - redis
     image: tenstartups/redis-commander
     command: --redis-host redis
     ports:
@@ -29,6 +34,8 @@ services:
 
   webserver:
     container_name: webserver
+    depends_on:
+     - webapp
     image: nginx
     volumes:
      - ./nginx/mysite.template:/etc/nginx/conf.d/mysite.template
