@@ -9,7 +9,10 @@ TBD
 * [Node.js](https://nodejs.org/en/)
 * [Express](http://expressjs.com/)
 * [Redis](https://redis.io/download)
+* [Nginx](https://nginx.org/en/)
 * [Docker](https://www.docker.com/)
+
+![alt text](https://raw.githubusercontent.com/johnnyconroy/cryptowatch/master/images/stackDiagram.png)
 
 ## Get Started
 * Install and launch [Redis](https://redis.io/download)
@@ -42,4 +45,5 @@ docker-compose up -d
 docker-compose logs -f -t
 ```
 > App running locally on http://localhost:4000
+
 > Redis Commander running locally on http://localhost:8081
