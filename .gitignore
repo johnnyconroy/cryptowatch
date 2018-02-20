@@ -3,6 +3,9 @@
 # dependencies
 /node_modules
 
+# build within scripts
+/build
+
 # flow-typed
 /flow-typed
 
