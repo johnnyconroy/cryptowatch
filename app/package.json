@@ -12,11 +12,10 @@
     "react-scripts": "1.1.0",
     "recharts": "^1.0.0-beta.10",
     "redis": "^2.8.0",
-    "redux": "^3.7.2",
-    "request": "^2.83.0"
+    "redux": "^3.7.2"
   },
   "scripts": {
-    "start-server": "nodemon ./server/app.js --exec babel-node -e js",
+    "start-server": "nodemon ./index.js --exec babel-node -e js",
     "start": "react-scripts start",
     "start-docker": "yarn build && yarn start-server",
     "build": "react-scripts build",
@@ -35,6 +34,6 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.6.1",
     "flow-bin": "^0.64.0",
-    "nodemon": "^1.14.12"
+    "nodemon": "^1.15.1"
   }
 }
