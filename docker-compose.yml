@@ -8,7 +8,7 @@ services:
     volumes:
       - './app:/usr/src/app'
       - './utils:/usr/src/utils'
-      - 'usr/src/app/node_modules'
+      - '/usr/src/app/node_modules'
     ports:
       - '3000:3000'
 
@@ -20,7 +20,7 @@ services:
     volumes:
       - './api:/usr/src/app'
       - './utils:/usr/src/utils'
-      - 'usr/src/app/node_modules'
+      - '/usr/src/app/node_modules'
     ports:
       - '4000:4000'
     environment:
@@ -37,7 +37,7 @@ services:
     image: tenstartups/redis-commander
     command: --redis-host redis
     ports:
-      - "8081:8081"
+      - '8081:8081'
 
   webserver:
     container_name: webserver
