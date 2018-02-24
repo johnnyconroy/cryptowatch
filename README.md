@@ -53,6 +53,10 @@ Here's a set-up example.
 * Launch an Ubuntu EC2 instance with default parameters except for the security groups (see picture below)
 * SSH to your instance
 * Install docker (see [here](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-repository)), docker-compose (see [here](https://docs.docker.com/compose/install/)), and manage docker as non-root user (see [here](https://docs.docker.com/install/linux/linux-postinstall/))
+```bash
+scripts/AWS/install-docker.sh
+```
+* Log out and log back in so that your group membership is re-evaluated.
 * Clone this repository
 * Launch docker-compose
 ```
