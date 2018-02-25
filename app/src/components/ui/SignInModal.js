@@ -10,13 +10,21 @@ type State = {
 
 const styles = {
   button: {
-    margin: 12,
     textTransform: 'none',
+    width: '100%',
+    marginTop: '30px',
   },
   tab: {
     textTransform: 'none',
-    fontSize: '20px',
+    fontSize: '16px',
+    maxHeight: 200,
+    overflow: 'auto',
   },
+  text: {
+    position: 'relative',
+    top: '5px',
+    fontSize: '13px',
+  }
 };
 
 class SignInModal extends Component<{}, State> {
@@ -44,18 +52,29 @@ class SignInModal extends Component<{}, State> {
               hintText="password"
               floatingLabelText="password"
             /><br />
+            <a href="#" style={styles.text}>Forgot your password?</a>
             <RaisedButton label="Submit" primary={true} style={styles.button} />
-            <RaisedButton label="Close" style={styles.button} />
           </div>
         </Tab>
         <Tab label="Sign-Up" value="b" style={styles.tab}>
           <div>
-            <h2>Controllable Tab B</h2>
-            <p>
-              This is another example of a controllable tab. Remember, if you
-              use controllable Tabs, you need to give all of your tabs values or else
-              you wont be able to select them.
-            </p>
+            <TextField
+              hintText="username"
+              floatingLabelText="username"
+            /><br />
+            <TextField
+              hintText="email"
+              floatingLabelText="email"
+            /><br />
+            <TextField
+              hintText="password"
+              floatingLabelText="password"
+            /><br />
+            <TextField
+              hintText="confirm password"
+              floatingLabelText="confirm password"
+            /><br />
+            <RaisedButton label="Submit" primary={true} style={styles.button} />
           </div>
         </Tab>
       </Tabs>

@@ -9,7 +9,7 @@ type State = {
 };
 
 const customContentStyle = {
-  width: '500px',
+  width: '350px',
 };
 
 class NavBar extends Component<{}, State> {
@@ -36,6 +36,7 @@ class NavBar extends Component<{}, State> {
               open={this.state.open}
               onRequestClose={this.handleClose}
               contentStyle={customContentStyle}
+              autoScrollBodyContent={true}
             >
               <SignInModal />
             </Dialog>
