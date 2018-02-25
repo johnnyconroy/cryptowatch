@@ -24,7 +24,7 @@ const styles = {
     position: 'relative',
     top: '5px',
     fontSize: '13px',
-  }
+  },
 };
 
 class SignInModal extends Component<{}, State> {
