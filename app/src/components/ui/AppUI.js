@@ -1,11 +1,26 @@
+// @flow
 import React, { Component } from 'react';
 import Timeline from './Timeline';
+import Navbar from './Navbar';
 import { jsonToRecharts } from '../../rechartsUtils/dataConversion';
 
-class AppUI extends Component {
+type AppUIProps = {
+  timelineLoading: boolean,
+  timelineData: Array<Object>,
+  startFetchTimelineData: Function,
+  setTimelineData: Function
+}
+
+// For dev environment
+const prefixURL = window.location.hostname === 'localhost' ?
+  'http://localhost:4000/' :
+  '';
+const url = `${prefixURL}api/timeline`;
+
+class AppUI extends Component<AppUIProps> {
   componentDidMount() {
     this.props.startFetchTimelineData();
-    fetch('api/timeline')
+    fetch(url)
       .then(response => response.json())
       .then(response => jsonToRecharts(response))
       .then((data) => {
@@ -17,6 +32,7 @@ class AppUI extends Component {
     const { timelineLoading, timelineData } = this.props;
     return (
       <div className="App">
+        <Navbar />
         <Timeline timelineLoading={timelineLoading} timelineData={timelineData} />
       </div>
     );

@@ -52,7 +52,7 @@ docker-compose logs -f -t
 Here's a set-up example.
 * Launch an Ubuntu EC2 instance with default parameters except for the security groups (see picture below)
 * SSH to your instance
-* Install docker (see [here](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-repository)), docker-compose (see [here](https://docs.docker.com/compose/install/)), and manage docker as non-root user (see [here](https://docs.docker.com/install/linux/linux-postinstall/))
+* Install docker (see [here](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-repository)), docker-compose (see [here](https://docs.docker.com/compose/install/)), and manage docker as non-root user (see [here](https://docs.docker.com/install/linux/linux-postinstall/)). You can use the script below.
 ```bash
 scripts/AWS/install-docker.sh
 ```

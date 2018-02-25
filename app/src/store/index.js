@@ -1,3 +1,4 @@
+// @flow
 import { createStore, applyMiddleware } from 'redux';
 import appReducer from './reducers';
 import { activateLogger } from '../config/constants';
@@ -23,7 +24,7 @@ const saver = store => next => (action) => {
   return result;
 };
 
-export default initialState =>
+export default (initialState: JSON) =>
   applyMiddleware(logger, saver)(createStore)(
     appReducer,
     (

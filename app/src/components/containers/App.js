@@ -1,3 +1,4 @@
+// @flow
 import { connect } from 'react-redux';
 import { setTimelineData, startFetchTimelineData } from '../../store/actions';
 import AppUI from '../ui/AppUI';

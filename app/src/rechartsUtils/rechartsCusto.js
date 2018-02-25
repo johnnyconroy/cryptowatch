@@ -1,13 +1,15 @@
 // @flow
 import React from 'react';
 
-type TimelineAxisProps = {
-  x: string,
-  y: string,
-  payload: {value: string},
-}
+// TODO - find the right syntax for flow destructured arguments
+// type TimelineAxisProps = {
+//   x: string,
+//   y: string,
+//   payload: {value: number},
+// }
+// export const TimelineXAxisTick = ({ x, y, payload }: TimelineAxisProps) => (
 
-export const TimelineXAxisTick = ({ x, y, payload }: TimelineAxisProps) => (
+export const TimelineXAxisTick = ({ x, y, payload }: any) => (
   <g transform={`translate(${x},${y})`}>
     <text
       x={0}
@@ -24,7 +26,7 @@ export const TimelineXAxisTick = ({ x, y, payload }: TimelineAxisProps) => (
 );
 
 
-export const TimelineYAxisTick = ({ x, y, payload }: TimelineAxisProps) => (
+export const TimelineYAxisTick = ({ x, y, payload }: any) => (
   <g transform={`translate(${x},${y})`}>
     <text
       x={0}
