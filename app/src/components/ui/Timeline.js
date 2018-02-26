@@ -4,6 +4,7 @@ import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tool
 import { TimelineXAxisTick, TimelineYAxisTick } from '../../rechartsUtils/rechartsCusto';
 import MaterialLoader from './MaterialLoader';
 import '../../styles/timeline.css';
+import '../../styles/loaders.css';
 
 type TimelineProps = {
   timelineLoading: boolean,
@@ -15,7 +16,9 @@ const Timeline = (props: TimelineProps) => {
   return timelineLoading === true ?
     <div className="timeline">
       <ResponsiveContainer>
-        <MaterialLoader />
+        <div id="timelineLoader">
+          <MaterialLoader />
+        </div>
       </ResponsiveContainer>
     </div> : (
       <div className="timeline">
