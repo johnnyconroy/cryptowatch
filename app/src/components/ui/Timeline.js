@@ -6,12 +6,12 @@ import MaterialLoader from './MaterialLoader';
 import '../../styles/timeline.css';
 import '../../styles/loaders.css';
 
-type TimelineProps = {
+type Props = {
   timelineLoading: boolean,
   timelineData: Array<Object>,
 }
 
-const Timeline = (props: TimelineProps) => {
+const Timeline = (props: Props) => {
   const { timelineLoading, timelineData } = props;
   return timelineLoading === true ?
     <div className="timeline">

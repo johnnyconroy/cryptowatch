@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import Dialog from 'material-ui/Dialog';
-import SignInModal from './SignInModal';
+import LoginModal from './LoginModal';
 import '../../styles/navbar.css';
 
 type State = {
@@ -38,7 +38,7 @@ class NavBar extends Component<{}, State> {
               contentStyle={customContentStyle}
               autoScrollBodyContent={true}
             >
-              <SignInModal />
+              <LoginModal />
             </Dialog>
           </li>
           <li>

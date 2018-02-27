@@ -9,7 +9,7 @@ type Props = {
   styles: Object,
 }
 
-const SignInButton = (props: Props) => {
+const LoginButton = (props: Props) => {
   const { siLoading, signInUser, styles } = props;
   return siLoading === true ?
     <div className="signInUpLoader">
@@ -23,4 +23,4 @@ const SignInButton = (props: Props) => {
     />;
 };
 
-export default SignInButton;
+export default LoginButton;

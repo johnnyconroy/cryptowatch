@@ -2,8 +2,9 @@
 import React, { Component } from 'react';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import TextField from 'material-ui/TextField';
-import isValidPassword from '../../appUtils/signInHelpers';
-import SignInButton from './SignInButton';
+import { isValidPassword, isValidEmail, isValidUsername } from '../../appUtils/signInHelpers';
+import styles from '../../styles/materialStyles';
+import LoginButton from './LoginButton';
 import SignUpButton from './SignUpButton';
 
 type State = {
@@ -18,39 +19,7 @@ type State = {
     color: string
   },
   suConfirmPassword: string,
-  suConfirmPasswordStyle: Object,
   suLoading: boolean,
-};
-
-const styles = {
-  button: {
-    textTransform: 'none',
-    width: '100%',
-    marginTop: '30px',
-  },
-  tab: {
-    textTransform: 'none',
-    fontSize: '16px',
-    maxHeight: 200,
-    overflow: 'auto',
-  },
-  text: {
-    position: 'relative',
-    top: '5px',
-    fontSize: '13px',
-  },
-  gray: {
-    color: 'rgba(0, 0, 0, 0.3)',
-  },
-  blue: {
-    color: 'rgb(0, 188, 212)',
-  },
-  orange: {
-    color: 'orange',
-  },
-  red: {
-    color: 'red',
-  },
 };
 
 class SignInModal extends Component<{}, State> {
@@ -61,10 +30,9 @@ class SignInModal extends Component<{}, State> {
     siLoading: false,
     suUsername: '',
     suEmail: '',
-    suPassword: 'sup',
+    suPassword: '',
     suPasswordErrorStyle: styles.gray,
-    suConfirmPassword: 'csup',
-    suConfirmPasswordStyle: styles.red,
+    suConfirmPassword: '',
     suLoading: false,
   };
 
@@ -82,13 +50,6 @@ class SignInModal extends Component<{}, State> {
       }
     } else {
       this.setState({ suPasswordErrorStyle: styles.gray });
-    }
-    this.updateInputValue(event);
-  };
-
-  onConfirmPasswordChange = (event: Object, confirmPassword: string) => {
-    if (this.state.suPassword === confirmPassword) {
-      this.setState({ suConfirmPasswordStyle: styles.gray });
     }
     this.updateInputValue(event);
   };
@@ -126,7 +87,7 @@ class SignInModal extends Component<{}, State> {
               onChange={this.updateInputValue}
             /><br />
             <a href="#" style={styles.text}>Forgot your password?</a>
-            <SignInButton
+            <LoginButton
               siLoading={this.state.siLoading}
               signInUser={this.signInUser}
               styles={styles}
@@ -139,12 +100,14 @@ class SignInModal extends Component<{}, State> {
               id="suUsername"
               hintText="username"
               floatingLabelText="username"
+              errorText={(this.state.suUsername === '' || isValidUsername(this.state.suUsername)) ? '' : 'Invalid username'}
               onChange={this.updateInputValue}
             /><br />
             <TextField
               id="suEmail"
               hintText="email"
               floatingLabelText="email"
+              errorText={(this.state.suEmail === '' || isValidEmail(this.state.suEmail)) ? '' : 'Invalid email'}
               onChange={this.updateInputValue}
             /><br />
             <TextField
@@ -153,7 +116,7 @@ class SignInModal extends Component<{}, State> {
               floatingLabelText="password"
               floatingLabelStyle={styles.gray}
               floatingLabelFocusStyle={styles.blue}
-              errorText="Use at least one lowerase, one numeral, and seven characters."
+              errorText="Use at least 8 characters, 1 number, 1 upper and 1 lowercase"
               errorStyle={this.state.suPasswordErrorStyle}
               onChange={this.onPasswordChange}
             /><br />
@@ -161,11 +124,8 @@ class SignInModal extends Component<{}, State> {
               id="suConfirmPassword"
               hintText="confirm password"
               floatingLabelText="confirm password"
-              errorText="Passwords don't match."
-              errorStyle={this.state.suPassword !== this.state.suConfirmPassword ?
-                 this.state.suConfirmPasswordStyle :
-                 { display: 'none' }}
-              onChange={this.onConfirmPasswordChange}
+              errorText={this.state.suPassword !== this.state.suConfirmPassword ? 'Passwords don\'t match.' : ''}
+              onChange={this.updateInputValue}
             /><br />
             <SignUpButton
               suLoading={this.state.suLoading}
