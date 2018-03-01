@@ -16,7 +16,7 @@ app.use(logger);
 // enable cross origin requests
 app.use(cors());
 // tell the app to parse HTTP body messages
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // routes
 app.use('/api/data', dataRoutes);

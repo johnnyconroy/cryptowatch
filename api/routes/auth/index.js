@@ -13,7 +13,6 @@ const router = new express.Router();
 function validateSignupForm(payload) {
   const errors = {};
   let isFormValid = true;
-  let message = '';
 
   if (!payload || typeof payload.email !== 'string' || !validator.isEmail(payload.email)) {
     isFormValid = false;
@@ -25,18 +24,22 @@ function validateSignupForm(payload) {
     errors.password = 'Password must have at least 8 characters.';
   }
 
+  if (!payload || typeof payload.confirmPassword !== 'string' || payload.confirmPassword !== payload.password) {
+    isFormValid = false;
+    errors.confirmPassword = 'Passwords don\'t match';
+  }
+
   if (!payload || typeof payload.username !== 'string' || payload.username.trim().length === 0) {
     isFormValid = false;
     errors.username = 'Please provide your name.';
   }
 
   if (!isFormValid) {
-    message = 'Check the form for errors.';
+    errors.summary = 'Check the form for errors.';
   }
 
   return {
     success: isFormValid,
-    message,
     errors,
   };
 }
@@ -51,7 +54,6 @@ function validateSignupForm(payload) {
 function validateLoginForm(payload) {
   const errors = {};
   let isFormValid = true;
-  let message = '';
 
   if (!payload || typeof payload.email !== 'string' || payload.email.trim().length === 0) {
     isFormValid = false;
@@ -64,12 +66,11 @@ function validateLoginForm(payload) {
   }
 
   if (!isFormValid) {
-    message = 'Check the form for errors.';
+    errors.summary = 'Check the form for errors.';
   }
 
   return {
     success: isFormValid,
-    message,
     errors,
   };
 }
@@ -84,7 +85,7 @@ router.post('/signup', (req, res) => {
     });
   }
 
-  return res.status(200).end();
+  return res.status(200).send({}).end();
 });
 
 router.post('/login', (req, res) => {
@@ -97,7 +98,7 @@ router.post('/login', (req, res) => {
     });
   }
 
-  return res.status(200).end();
+  return res.status(200).send({}).end();
 });
 
 
