@@ -7,15 +7,16 @@ import SignUpButton from './SignUpButton';
 type Props = {
   onChange: Function,
   onSubmit: Function,
-  signup: Object,
+  signUp: Object,
 }
 
 const SignUpForm = (props: Props) => {
-  const { onChange, onSubmit, signup } = props;
-  const { errors } = signup;
-  const { loading } = signup;
+  const { onChange, onSubmit, signUp } = props;
+  const { errors } = signUp;
+  const { loading } = signUp;
   return (
     <div>
+      {errors.summary && <p className="error-message">☢ {errors.summary}</p>}
       <TextField
         name="username"
         hintText="username"

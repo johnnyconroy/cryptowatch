@@ -3,34 +3,6 @@
 // regexp messing with eslint
 /* eslint no-useless-escape: "off" */
 
-export const isValidEmail = (email: string) => {
-// requirements as per OWASP
-// https://www.owasp.org/index.php/Input_Validation_Cheat_Sheet#Email_Address_Validation
-/*
-            /^
-              (
-                (
-                  [^<>()[\]\\.,;:\s@\"]+(
-                                          \.[^<>()[\]\\.,;:\s@\"]+
-                                        )*
-                )|(\".+\")
-              )
-              @
-              (
-                (
-                  \[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\]
-                )|(
-                    (
-                      [a-zA-Z\-0-9]+\.
-                    )+[a-zA-Z]{2,}
-                  )
-              )
-            $/
-*/
-  const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(email);
-};
-
 export const isValidPassword = (password: string) => {
 /*
             /^

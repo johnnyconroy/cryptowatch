@@ -2,10 +2,12 @@
 import React, { Component } from 'react';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import TextField from 'material-ui/TextField';
-import { isValidPassword, isValidEmail, isValidUsername } from '../../appUtils/signInHelpers';
+import { isValidPassword, isValidUsername } from '../../appUtils/signInHelpers';
 import styles from '../../styles/materialStyles';
 import LoginButton from './LoginButton';
 import SignUpButton from './SignUpButton';
+
+const validator = require('validator');
 
 type State = {
   value: string,
@@ -107,7 +109,7 @@ class SignInModal extends Component<{}, State> {
               id="suEmail"
               hintText="email"
               floatingLabelText="email"
-              errorText={(this.state.suEmail === '' || isValidEmail(this.state.suEmail)) ? '' : 'Invalid email'}
+              errorText={(this.state.suEmail === '' || validator.isEmail(this.state.suEmail)) ? '' : 'Invalid email'}
               onChange={this.updateInputValue}
             /><br />
             <TextField

@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import Dialog from 'material-ui/Dialog';
-import LoginModal from './LoginModal';
+import AuthModal from './AuthModal';
 import '../../styles/navbar.css';
 
 type State = {
@@ -30,7 +30,7 @@ class NavBar extends Component<{}, State> {
       <div id="navbar">
         <ul>
           <li>
-            <p onClick={this.handleOpen}>Sign in</p>
+            <p id="loginButton" onClick={this.handleOpen}>Login</p>
             <Dialog
               modal={false}
               open={this.state.open}
@@ -38,11 +38,11 @@ class NavBar extends Component<{}, State> {
               contentStyle={customContentStyle}
               autoScrollBodyContent={true}
             >
-              <LoginModal />
+              <AuthModal />
             </Dialog>
           </li>
           <li>
-            <p>About</p>
+            <p className="navbarLink">About</p>
           </li>
         </ul>
       </div>

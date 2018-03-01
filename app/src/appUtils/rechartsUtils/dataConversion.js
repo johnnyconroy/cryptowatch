@@ -1,5 +1,5 @@
 // @flow
-export const jsonToRecharts = (jsonObject: {key: string}) => {
+const jsonToRecharts = (jsonObject: {key: string}) => {
   if (jsonObject) {
     const keys = Object.keys(jsonObject);
     return keys.map(key => (
@@ -12,8 +12,4 @@ export const jsonToRecharts = (jsonObject: {key: string}) => {
   return [];
 };
 
-const dataConversion = {
-  jsonToRecharts,
-};
-
-export default dataConversion;
+export default jsonToRecharts;

@@ -2,7 +2,8 @@
 import React, { Component } from 'react';
 import Timeline from './Timeline';
 import Navbar from './Navbar';
-import { jsonToRecharts } from '../../rechartsUtils/dataConversion';
+import jsonToRecharts from '../../appUtils/rechartsUtils/dataConversion';
+import { prefixURL, customFetch } from '../../appUtils/fetchHelpers';
 
 type AppUIProps = {
   timelineLoading: boolean,
@@ -11,17 +12,11 @@ type AppUIProps = {
   setTimelineData: Function
 }
 
-// For dev environment
-const prefixURL = window.location.hostname === 'localhost' ?
-  'http://localhost:4000/' :
-  '';
-const url = `${prefixURL}api/timeline`;
-
 class AppUI extends Component<AppUIProps> {
   componentDidMount() {
     this.props.startFetchTimelineData();
-    fetch(url)
-      .then(response => response.json())
+    const url = prefixURL('api/data/timeline');
+    customFetch(url)
       .then(response => jsonToRecharts(response))
       .then((data) => {
         this.props.setTimelineData(data);

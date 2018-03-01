@@ -16,15 +16,16 @@ const SignInForm = (props: Props) => {
   const { loading } = login;
   return (
     <div>
+      {errors.summary && <p className="error-message">☢ {errors.summary}</p>}
       <TextField
-        name="siEmail"
+        name="email"
         hintText="email"
         floatingLabelText="email"
         errorText={errors.email}
         onChange={onChange}
       /><br />
       <TextField
-        name="siPassword"
+        name="password"
         hintText="password"
         floatingLabelText="password"
         errorText={errors.password}

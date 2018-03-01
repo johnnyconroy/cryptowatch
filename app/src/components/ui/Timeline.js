@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-import { TimelineXAxisTick, TimelineYAxisTick } from '../../rechartsUtils/rechartsCusto';
+import { TimelineXAxisTick, TimelineYAxisTick } from '../../appUtils/rechartsUtils/rechartsCusto';
 import MaterialLoader from './MaterialLoader';
 import '../../styles/timeline.css';
 import '../../styles/loaders.css';

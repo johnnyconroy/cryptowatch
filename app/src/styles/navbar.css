@@ -11,22 +11,20 @@
 #navbar ul {
   list-style: none;
   display: flex;
-  margin-right: 150px;
+  margin-right: 200px;
 }
 
 #navbar li {
-  margin: 0 15px;
+  margin: 0 25px;
 }
 
 #navbar p {
   color: white;
-  border: solid 3px white;
   font-size: 15px;
   font-weight: bold;
   font-family: 'Lato', 'sans-serif';
   text-align: center;
   margin: 5px;
-  padding: 11px 25px;
   max-width: 60px;
   flex: auto;
 }
@@ -34,5 +32,23 @@
 #navbar p:hover {
   color: #f9a799;
   cursor: pointer;
+  border-bottom: solid 3px #f9a799;
+}
+
+#loginButton {
+  border: solid 3px white;
+  padding: 11px 25px;
+}
+
+#loginButton:hover {
   border: solid 3px #f9a799;
+}
+
+.navbarLink {
+  padding: 11px 0;
+}
+
+.error-message {
+  text-align: center;
+  color: red;
 }
