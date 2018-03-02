@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const initializeRedisData = require('./redis/initializeRedisData');
 const morgan = require('morgan');
+const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const dataRoutes = require('./routes/data');
 const authRoutes = require('./routes/auth');
@@ -11,8 +12,10 @@ const defaultRoutes = require('./routes/default');
 initializeRedisData();
 
 const app = express();
-// log requests in teh console
+// log requests in the console
 app.use(morgan('dev'));
+// Helmet is a collection of 12 middleware to help set some security headers.
+app.use(helmet());
 // enable cross origin requests
 app.use(cors());
 // tell the app to parse HTTP body messages
